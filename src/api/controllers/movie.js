@@ -55,13 +55,13 @@ const deleteMovies = async (req, res, next) => {
     } catch (error) {
         return res.status(400).json("error");
     }
-};
+}
 //los exporto para utlizar los controllers
 module.exports = {
     getMovies,
     postMovies,
     updateMovies,
-    deleteMovies
+    deleteMovies,
 }
 
 //get, post, put, delete
