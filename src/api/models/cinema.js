@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const cinemaSchema = new mongoose.Schema({
-    adress: {type:String, require: true, trim: true },
+    address: {type:String, require: true, trim: true },
     name: {type:String, require: true},
 }, {
     timestamps: true, //en la BD da la fecha que cargo los datos y la actualizacion de los datos
