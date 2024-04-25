@@ -13,16 +13,16 @@ app.listen(3000, () => {
 })*/
 //! Creando la Primera Ruta
 require("dotenv").config();
-
+const { connectDB } = require("src/config/db");
 const express = require("express");
-const { connectDB } = require("./src/config/db");
+
+
 const moviesRouter = require("./src/api/routes/movie");
 const cinemaRouter = require("./src/api/routes/cinema")
 //al ejecutar la variable app (usando express como una función)= esto permite a la app metodos:
 const app = express();
 
 connectDB();
-
 
 //! Linea para configurar que mi servidor sirva para recoger datos en formato json
 app.use(express.json());

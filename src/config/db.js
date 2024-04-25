@@ -7,6 +7,6 @@ try {
 } catch (error) {
     console.log("Fallo en la conexion con la BBDD");
 }
-};
+}
 
-module.exports = { connectDB}
+module.exports = {connectDB};
