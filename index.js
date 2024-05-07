@@ -13,7 +13,7 @@ app.listen(3000, () => {
 })*/
 //! Creando la Primera Ruta
 require("dotenv").config();
-const { connectDB } = require("src/config/db");
+const {connectDB } = require("./src/config/db");
 const express = require("express");
 
 
@@ -26,7 +26,6 @@ connectDB();
 
 //! Linea para configurar que mi servidor sirva para recoger datos en formato json
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/v1/movies", moviesRouter);
 app.use("/api/v1/cinemas", cinemaRouter);

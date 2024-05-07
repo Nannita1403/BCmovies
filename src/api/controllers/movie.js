@@ -12,7 +12,7 @@ const getMovies = async (req, res, next) => {
     } catch (error) {
         return res.status(400).json("error");
     }
-}
+};
 
 //subir peliculas de la base de datos
 const postMovies = async (req, res, next) => {
@@ -41,7 +41,7 @@ const updateMovies = async (req, res, next) => {
     } catch (error) {
         return res.status(400).json("error");
     }
-}
+};
 //eliminar pelicula de la base de datos
 const deleteMovies = async (req, res, next) => {
     try {
@@ -55,7 +55,8 @@ const deleteMovies = async (req, res, next) => {
     } catch (error) {
         return res.status(400).json("error");
     }
-}
+};
+
 //los exporto para utlizar los controllers
 module.exports = {
     getMovies,

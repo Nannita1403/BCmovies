@@ -3,7 +3,7 @@
 const Cinema = require("../models/cinema");
 
 //recojer los cines de la BD
-const getCinema = async (req, res, next) => {
+const getCinemas = async (req, res, next) => {
     //comprobar si hay errores uso try Catch
     try {
         const cinemas = await Cinema.find(); //busco cada pelicula
@@ -11,7 +11,18 @@ const getCinema = async (req, res, next) => {
     } catch (error) {
         return res.status(400).json("error");
     }
-}
+};
+
+const getCinema = async(req, res, next)=> {
+    try {
+        const { id } = req.params;
+        const cinema = await Cinema.findById(id).populate("movies");
+        return res.status(200).json(cinema); //me devuelve las mismas
+    } catch (error) {
+        return res.status(400).json("error");
+    }
+};     
+
 
 //subir Cines a la BD
 const postCinema = async (req, res, next) => {
@@ -22,7 +33,7 @@ const postCinema = async (req, res, next) => {
     } catch (error) {
         return res.status(400).json("error");
     }
-}
+};
 
 //actualizar/modificar peliculas de la base de datos (necesito el ID de la pelicula q quiero modif)
 const updateCinema = async (req, res, next) => {
@@ -40,7 +51,7 @@ const updateCinema = async (req, res, next) => {
     } catch (error) {
         return res.status(400).json("error");
     }
-}
+};
 //eliminar pelicula de la base de datos
 const deleteCinema = async (req, res, next) => {
     try {
@@ -57,10 +68,11 @@ const deleteCinema = async (req, res, next) => {
 };
 //los exporto para utlizar los controllers
 module.exports = {
-    getCinema,
+    getCinemas,
     postCinema,
     updateCinema,
-    deleteCinema
-}
+    deleteCinema,
+    getCinema,
+};
 
 //get, post, put, delete
